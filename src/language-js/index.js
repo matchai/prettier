@@ -42,6 +42,16 @@ const languages = [
       vscodeLanguageIds: ["typescript", "typescriptreact"]
     }
   }),
+  createLanguage(require("linguist-languages/data/javascript"), {
+    override: {
+      since: "0.0.0",
+      parsers: ["babel", "flow", "jsdoc"],
+      vscodeLanguageIds: ["javascript"]
+    },
+    extend: {
+      interpreters: ["nodejs"]
+    }
+  }),
   createLanguage(require("linguist-languages/data/json"), {
     override: {
       name: "JSON.stringify",

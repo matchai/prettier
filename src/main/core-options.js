@@ -142,6 +142,7 @@ const options = {
       },
       { value: "less", since: "1.7.1", description: "Less" },
       { value: "scss", since: "1.7.1", description: "SCSS" },
+      { value: "jsdoc", since: "1.17.0", description: "JSDoc" },
       { value: "json", since: "1.5.0", description: "JSON" },
       { value: "json5", since: "1.13.0", description: "JSON5" },
       {

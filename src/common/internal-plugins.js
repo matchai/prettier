@@ -33,6 +33,10 @@ module.exports = [
           "json-stringify"
         ];
       },
+      get jsdoc() {
+        return eval("require")("../language-js/parser-typescript-jsdoc.js")
+          .parsers.jsdoc;
+      },
       get __js_expression() {
         return eval("require")("../language-js/parser-babylon").parsers
           .__js_expression;
