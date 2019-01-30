@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`function.js 1`] = `
+====================================options=====================================
+parsers: ["babel", "flow", "typescript"]
+printWidth: 80
+                                                                                | printWidth
+=====================================input======================================
+/**
+ * Add two numbers together
+ * @param num1
+ * @param num2
+ */
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+=====================================output=====================================
+/**
+ * Add two numbers together
+ * @param num1
+ * @param num2
+ */
+function sum(num1, num2) {
+  return num1 + num2;
+}
+
+================================================================================
+`;

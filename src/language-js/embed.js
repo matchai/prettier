@@ -1,5 +1,3 @@
-"use strict";
-
 const { isBlockComment, hasLeadingComment } = require("./comments");
 
 const {
@@ -184,10 +182,24 @@ function embed(path, print, textToDoc /*, options */) {
     }
   }
 
+  if (hasJsDocComment(node)) {
+    debugger;
+    const comment = `/*${node.comments[0].value}*/`;
+    const doc = textToDoc(comment, {
+      parser: "typescript",
+      astFormat: "typescript"
+    });
+    return formatJsDocComment(doc);
+  }
+
   function printMarkdown(text) {
     const doc = textToDoc(text, { parser: "markdown", __inJsTemplate: true });
     return stripTrailingHardline(escapeTemplateCharacters(doc, true));
   }
+}
+
+function formatJsDocComment(doc) {
+  return doc;
 }
 
 function getIndentation(str) {
@@ -513,6 +525,24 @@ function hasLanguageComment(node, languageName) {
   return hasLeadingComment(
     node,
     comment => isBlockComment(comment) && comment.value === ` ${languageName} `
+  );
+}
+
+function hasJsDocComment(node) {
+  return hasLeadingComment(
+    node,
+    comment => isBlockComment(comment) && isJsDocComment(comment)
+  );
+}
+
+function isJsDocComment(comment) {
+  // If the comment has multiple lines, the first line begins `/**` and
+  // every line begins with a star, the comment is a JSDoc.
+  const lines = `*${comment.value}*`.split("\n");
+  return (
+    lines[0] === "**" &&
+    lines.length > 1 &&
+    lines.every(line => line.trim()[0] === "*")
   );
 }
 
