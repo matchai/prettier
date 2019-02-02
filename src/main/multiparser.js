@@ -28,11 +28,9 @@ function textToDoc(text, partialNextOptions, parentOptions, printAstToDoc) {
   const ast = result.ast;
   text = result.text;
 
-  if (!nextOptions.formatComments) {
-    const astComments = ast.comments;
-    delete ast.comments;
-    comments.attach(astComments, ast, text, nextOptions);
-  }
+  const astComments = ast.comments;
+  delete ast.comments;
+  comments.attach(astComments, ast, text, nextOptions);
   return printAstToDoc(ast, nextOptions);
 }
 
