@@ -54,6 +54,10 @@ module.exports = [
         return eval("require")("../language-js/parser-typescript").parsers
           .typescript;
       },
+      // JS - JSDoc
+      get jsdoc() {
+        return eval("require")("../language-js/parser-jsdoc").parsers.jsdoc;
+      },
       /**
        * TODO: Remove this old alias in a major version
        */

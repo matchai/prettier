@@ -25,7 +25,7 @@ rules:
   prefer-const: error
   react/no-deprecated: off
   react/prop-types: off
-  strict: error
+  # strict: error
   symbol-description: error
   yoda:
   - error

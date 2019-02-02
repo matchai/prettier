@@ -2,6 +2,7 @@
 
 const estreePrinter = require("./printer-estree");
 const estreeJsonPrinter = require("./printer-estree-json");
+const typescriptCommentPrinter = require("./printer-typescript-comment");
 const options = require("./options");
 const createLanguage = require("../utils/create-language");
 
@@ -84,7 +85,8 @@ const languages = [
 
 const printers = {
   estree: estreePrinter,
-  "estree-json": estreeJsonPrinter
+  "estree-json": estreeJsonPrinter,
+  "typescript-comment": typescriptCommentPrinter
 };
 
 module.exports = {

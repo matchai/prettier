@@ -1,3 +1,5 @@
+"use strict";
+
 const { isBlockComment, hasLeadingComment } = require("./comments");
 
 const {
@@ -183,11 +185,11 @@ function embed(path, print, textToDoc /*, options */) {
   }
 
   if (hasJsDocComment(node)) {
-    debugger;
     const comment = `/*${node.comments[0].value}*/`;
     const doc = textToDoc(comment, {
-      parser: "typescript",
-      astFormat: "typescript"
+      parser: "jsdoc",
+      astFormat: "typescript-comment",
+      formatComments: true
     });
     return formatJsDocComment(doc);
   }

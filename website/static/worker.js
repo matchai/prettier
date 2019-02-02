@@ -60,6 +60,11 @@ var parsers = {
     importScriptOnce("lib/parser-typescript.js");
     return prettierPlugins.typescript.parsers.typescript;
   },
+  // JS - JSDoc
+  get jsdoc() {
+    importScriptOnce("lib/parser-jsdoc.js");
+    return prettierPlugins.typescript.parsers.jsdoc;
+  },
   // JS - Angular Action
   get __ng_action() {
     importScriptOnce("lib/parser-angular.js");
