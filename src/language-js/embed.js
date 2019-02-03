@@ -186,22 +186,20 @@ function embed(path, print, textToDoc /*, options */) {
 
   if (hasJsDocComment(node)) {
     const comment = `/*${node.comments[0].value}*/`;
-    const doc = textToDoc(comment, {
+    debugger;
+    const nodeDoc = textToDoc(node);
+    const commentDoc = textToDoc(comment, {
       parser: "jsdoc",
       astFormat: "typescript-comment",
       formatComments: true
     });
-    return formatJsDocComment(doc);
+    return indent(concat([commentDoc, hardline, nodeDoc]));
   }
 
   function printMarkdown(text) {
     const doc = textToDoc(text, { parser: "markdown", __inJsTemplate: true });
     return stripTrailingHardline(escapeTemplateCharacters(doc, true));
   }
-}
-
-function formatJsDocComment(doc) {
-  return doc;
 }
 
 function getIndentation(str) {
