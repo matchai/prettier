@@ -9,7 +9,7 @@ function genericPrint(path, options, printPath) {
   // debugger;
 
   if (node.comment) {
-    return concat([node.comment, hardline]);
+    return concat(["/**", hardline, " * " + node.comment, hardline, " */"]);
   }
 }
 
